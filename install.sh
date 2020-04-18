@@ -1,9 +1,10 @@
 #!/bin/bash
 
+SOURCE=$1
 # takes one argument of the parent directory path
 test -e ~/.tmux && mv ~/.tmux{,.bak}
 test -L ~/.tmux && mv ~/.tmux{,.bak}
-ln -s "$1"/tmux ~/.tmux
+ln -s "$SOURCE"/tmux ~/.tmux
 
 test -e ~/.tmux.conf && mv ~/.tmux.conf{,.bak}
 test -L ~/.tmux.conf && mv ~/.tmux.conf{,.bak}
