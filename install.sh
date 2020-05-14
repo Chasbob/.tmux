@@ -2,14 +2,17 @@
 
 SOURCE=$1
 # takes one argument of the parent directory path
-test -e ~/.tmux && mv ~/.tmux{,.bak}
-test -L ~/.tmux && mv ~/.tmux{,.bak}
-ln -s "$SOURCE"/tmux ~/.tmux
+echo link .tmux
+[ -h ~/.tmux ] && unlink ~/.tmux
+[ -e ~/.tmux ] && mv ~/.tmux{,.bak}
+ln -sf "$SOURCE/tmux" ~/.tmux
 
-test -e ~/.tmux.conf && mv ~/.tmux.conf{,.bak}
-test -L ~/.tmux.conf && mv ~/.tmux.conf{,.bak}
+echo link .tmux.conf
+[ -h ~/.tmux.conf ] && unlink ~/.tmux.conf
+[ -e ~/.tmux.conf ] && mv ~/.tmux.conf{,.bak}
 ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
 
-test -e ~/.tmux.conf.local && mv ~/.tmux.conf.local{,.bak}
-test -L ~/.tmux.conf.local && mv ~/.tmux.conf.local{,.bak}
+echo link .tmux.conf.local
+[ -h ~/.tmux.conf.local ] && unlink ~/.tmux.conf.local
+[ -e ~/.tmux.conf.local ] && mv ~/.tmux.conf.local{,.bak}
 ln -s ~/.tmux/.tmux.conf.local ~/.tmux.conf.local
