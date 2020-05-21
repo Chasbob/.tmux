@@ -2,17 +2,17 @@
 
 SOURCE=$1
 # takes one argument of the parent directory path
-echo link .tmux
-[ -h ~/.tmux ] && unlink ~/.tmux
-[ -e ~/.tmux ] && mv ~/.tmux{,.bak}
-ln -sf "$SOURCE/tmux" ~/.tmux
+echo "Setup .tmux directory"
+[ -h "$HOME"/.tmux ] && unlink "$HOME"/.tmux
+[ -e "$HOME"/.tmux ] && mv "$HOME"/.tmux{,.bak}
+ln -sf "$SOURCE/tmux" "$HOME"/.tmux
 
-echo link .tmux.conf
-[ -h ~/.tmux.conf ] && unlink ~/.tmux.conf
-[ -e ~/.tmux.conf ] && mv ~/.tmux.conf{,.bak}
-ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
+echo "Setup .tmux.conf"
+[ -h "$HOME"/.tmux.conf ] && unlink "$HOME"/.tmux.conf
+[ -e "$HOME"/.tmux.conf ] && mv "$HOME"/.tmux.conf{,.bak}
+ln -s "$HOME"/.tmux/.tmux.conf "$HOME"/.tmux.conf
 
-echo link .tmux.conf.local
-[ -h ~/.tmux.conf.local ] && unlink ~/.tmux.conf.local
-[ -e ~/.tmux.conf.local ] && mv ~/.tmux.conf.local{,.bak}
-ln -s ~/.tmux/.tmux.conf.local ~/.tmux.conf.local
+echo "Setup .tmux.conf.local"
+[ -h "$HOME"/.tmux.conf.local ] && unlink "$HOME"/.tmux.conf.local
+[ -e "$HOME"/.tmux.conf.local ] && mv "$HOME"/.tmux.conf.local{,.bak}
+ln -s "$HOME"/.tmux/.tmux.conf.local "$HOME"/.tmux.conf.local
